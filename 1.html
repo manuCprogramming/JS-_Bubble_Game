@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<ul>
+    <li>green</li>
+    <li>white</li>
+    <li>light</li>
+</ul>
+
+    <input placeholder="Enter some text" name="name" />
+<p id="values"></p>
+
+    <button id="bt">Click me once again</button>
+    <h2></h2>
+    <script>
+//         console.log("hello world");
+//         const bt=document.getElementById('bt');
+//         const h2=document.querySelector('h2');
+        const inpu = document.querySelector("input");
+const log = document.getElementById("values");
+
+inpu.addEventListener('input',function(e)
+{
+    log.textContent = `You typed: ${e.target.value}`;
+})
+
+// inpu.addEventListener('input', updateValue);
+
+// function updateValue(e) {
+//   log.textContent = e.target.value;
+// }
+// inpu.addEventListener('input',function(e)
+// {
+//     updateValue(e);  
+// });
+
+// function updateValue(e) {
+//   log.textContent = e.target.value;
+// }
+
+
+//         bt.addEventListener('click',function(e)
+//     {
+//         e.preventDefault();
+//         h2.innerHTML="madak bere kelsa elva..!"
+
+//     })
+const t=100;
+
+console.log(t);
+
+// constant cant be reinitailized or reassigned
+
+let a=100;
+ a=200;
+console.log(a);
+
+//let can be reassigned but not reinitialized
+
+var v=100;
+var v=300;
+console.log(v);
+// so the var only one which can be reinitialized and reassigned
+const ul=document.querySelector('ul');
+ul.addEventListener('mouseenter',function(e)
+{e.target.style.color="red";
+setTimeout(()=>
+{
+    e.target.style.color='';},900)
+
+},
+false);
+
+    </script>
+
+
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Vanish Circles</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  var wi = 100;
+  var hi = 100;
+  const  vanishSound= new Audio("e.wav");
+  const popSound = new Audio("s.mp3");
+  document.addEventListener('click', function(e) {
+    const w = e.clientX;
+    const h = e.clientY;
+
+    const d = document.createElement('div');
+    d.style.width = `${wi}px`;
+    d.style.height = `${hi}px`;
+    wi += 20;
+    hi += 20;
+
+    d.style.position = 'absolute';
+    d.style.top = `${h}px`;
+    d.style.left = `${w}px`;
+    d.style.borderRadius = "50%";
+    d.style.display = "block";
+    d.style.zIndex = "9999";
+    d.style.transition = "opacity 1s"; // Enable fade effect
+
+    randomcolor(d);
+    document.body.appendChild(d);
+    popSound.currentTime = 0;
+    popSound.play();
+    // Fade out and remove after 10 seconds
+    setTimeout(() => {
+      d.style.opacity = "0";
+      vanishSound.currentTime = 0;
+    vanishSound.play();
+      setTimeout(() => d.remove(), 1000); // wait for fade to complete
+    },10000);
+  });
+
+  function randomcolor(d) {
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    d.style.background = `rgb(${r}, ${g}, ${b})`;
+    // d.style.color = `rgb(${255 - r}, ${255 - g}, ${255 - b})`;
+  }
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Vanish Circles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #instructions {
+      margin-bottom: 20px;
+      font-size: 18px;
+      background-color: #f0f8ff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="instructions">
+  <h2>🎯 How to Play</h2>
+  <p>Click anywhere on the screen to create a colorful circle that will automatically vanish after 10 seconds.</p>
+  <p>Each circle makes a popping sound when it appears and a subtle sound when it disappears.</p>
+  <p><strong>Tip:</strong> For the best experience, please keep your volume at a medium level. 🔊</p>
+</div>
+
+</body>
+
+<script>
+  var wi = 100;
+  var hi = 100;
+  const vanishSound = new Audio("e.wav");
+  const popSound = new Audio("s.mp3");
+
+  document.addEventListener('click', function(e) {
+    const w = e.clientX;
+    const h = e.clientY;
+
+    const d = document.createElement('div');
+    d.style.width = `${wi}px`;
+    d.style.height = `${hi}px`;
+    wi += 20;
+    hi += 20;
+
+    d.style.position = 'absolute';
+    d.style.top = `${h}px`;
+    d.style.left = `${w}px`;
+    d.style.borderRadius = "50%";
+    d.style.display = "block";
+    d.style.zIndex = "9999";
+    d.style.transition = "opacity 1s";
+
+    randomcolor(d);
+    document.body.appendChild(d);
+
+    popSound.currentTime = 0;
+    popSound.play();
+
+    setTimeout(() => {
+      d.style.opacity = "0";
+      vanishSound.currentTime = 0;
+      vanishSound.play();
+      setTimeout(() => d.remove(), 1000);
+    }, 10000);
+  });
+
+  function randomcolor(d) {
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    d.style.background = `rgb(${r}, ${g}, ${b})`;
+  }
+</script>
+</html>
